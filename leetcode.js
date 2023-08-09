@@ -1,6 +1,6 @@
 /*
 
-58. Length of Last Word - Difficulty: Easy
+58. Length of Last Word 
 
 Given a string s consisting of words and spaces, return the length of the last word in the string.
 A word is a maximal substring consisting of non-space characters only.
@@ -78,3 +78,21 @@ Constraints:
 0 <= digits[i] <= 9
 digits does not contain any leading 0's.
 */
+
+var plusOne = function (digits) {
+  number = digits.join("");
+  let newNum = Number(number);
+  if (newNum > 9007199254740991) {
+    newNum = BigInt(number) + BigInt(1);
+  } else {
+    newNum = newNum + 1;
+  }
+  newArr = String(newNum).split("");
+  return newArr;
+};
+
+digits = [6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3];
+
+console.log(plusOne(digits));
+
+// Submission accepted ✅
