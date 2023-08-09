@@ -134,3 +134,21 @@ Only one valid answer exists.
 
 
 */
+
+var twoSum = function (nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let y = 1; y < nums.length; y++) {
+      if (nums[i] + nums[y] == target) {
+        if (i == y) {
+          continue;
+        } else {
+          return [i, y];
+        }
+      }
+    }
+  }
+};
+
+console.log(twoSum([2, 5, 5, 11], 10));
+
+// Submission accepted ✅
