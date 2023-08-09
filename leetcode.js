@@ -1,6 +1,6 @@
 /*
 
-58. Length of Last Word 
+58. Length of Last Word 💡
 
 Given a string s consisting of words and spaces, return the length of the last word in the string.
 A word is a maximal substring consisting of non-space characters only.
@@ -41,7 +41,7 @@ console.log(lengthOfLastWord("   fly me   to   the moon  "));
 
 /*
 
-66. Plus One
+66. Plus One 💡
 
 You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
 
