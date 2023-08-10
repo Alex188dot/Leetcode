@@ -246,3 +246,75 @@ Constraints:
 1 <= s.length <= 104
 s consists of parentheses only '()[]{}'
 */
+
+var isValid = function (s) {
+  let validity = [];
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "(" && s[i + 1] === ")") {
+      validity.push(true);
+    } else if (s[i] === ")" && s[i - 1] === "(") {
+      validity.push(true);
+    } else if (
+      (s[i] === "[" && s[i + 1] === "]") ||
+      (s[i] === "[" && s[i + 1] === "(" && s[i + 2] === ")" && s[i + 3] === "]")
+    ) {
+      validity.push(true);
+    } else if (
+      (s[i] === "]" && s[i - 1] === "[") ||
+      (s[i] === "]" && s[i - 1] === ")" && s[i - 2] === "(" && s[i - 3] === "[")
+    ) {
+      validity.push(true);
+    } else if (
+      (s[i] === "{" && s[i + 1] === "}") ||
+      (s[i] === "{" &&
+        s[i + 1] === "[" &&
+        s[i + 2] === "(" &&
+        s[i + 3] === ")" &&
+        s[i + 4] === "]" &&
+        s[i + 5] === "}")
+    ) {
+      validity.push(true);
+    } else if (
+      (s[i] === "}" && s[i - 1] === "{") ||
+      (s[i] === "}" &&
+        s[i - 1] === "]" &&
+        s[i - 2] === ")" &&
+        s[i - 3] === "(" &&
+        s[i - 4] === "[" &&
+        s[i - 5] === "{")
+    ) {
+      validity.push(true);
+    } else if (
+      (s[i] === "{" && s[i + 1] === "}") ||
+      (s[i] === "{" && s[i + 1] === "[" && s[i + 2] === "]" && s[i + 3] === "}")
+    ) {
+      validity.push(true);
+    } else if (
+      (s[i] === "}" && s[i - 1] === "{") ||
+      (s[i] === "}" && s[i - 1] === "]" && s[i - 2] === "[" && s[i - 3] === "{")
+    ) {
+      validity.push(true);
+    } else if (
+      (s[i] === "{" && s[i + 1] === "}") ||
+      (s[i] === "{" && s[i + 1] === "(" && s[i + 2] === ")" && s[i + 3] === "}")
+    ) {
+      validity.push(true);
+    } else if (
+      (s[i] === "}" && s[i - 1] === "{") ||
+      (s[i] === "}" && s[i - 1] === ")" && s[i - 2] === "(" && s[i - 3] === "{")
+    ) {
+      validity.push(true);
+    } else {
+      validity.push(false);
+    }
+  }
+  if (validity.includes(false)) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+let s = "{()}";
+
+console.log(isValid(s));
