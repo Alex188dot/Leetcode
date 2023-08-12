@@ -316,3 +316,21 @@ Constraints:
 nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
 */
+
+var searchInsert = function (nums, target) {
+  if (nums.indexOf(target) === -1) {
+    nums.unshift(target);
+    nums.sort((a, b) => a - b);
+    return nums.indexOf(target);
+  } else {
+    return nums.indexOf(target);
+  }
+};
+
+let nums = [3, 5, 7, 9, 10];
+
+let target = 8;
+
+console.log(searchInsert(nums, target));
+
+// Submission accepted ✅
