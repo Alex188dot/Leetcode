@@ -362,3 +362,22 @@ Constraints:
 1 <= nums.length <= 105
 -109 <= nums[i] <= 109
 */
+
+var containsDuplicate = function (nums) {
+  const equalsCheck = (a, b) =>
+    a.length === b.length && a.every((v, i) => v === b[i]);
+  let newNums = new Set(nums);
+  let nums2 = Array.from(newNums);
+  console.log(nums2);
+  if (equalsCheck(nums, nums2) === true) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+nums = [1, 2, 3, 1];
+
+console.log(containsDuplicate(nums));
+
+// Submission accepted ✅
