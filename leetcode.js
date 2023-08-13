@@ -411,3 +411,25 @@ Constraints:
 0 <= k <= 105
 
 */
+
+var containsNearbyDuplicate = function (nums, k) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 1; j < nums.length; j++) {
+      if (
+        nums[i] === nums[j] &&
+        Math.abs(i - j) <= k &&
+        Math.abs(i - j) !== 0
+      ) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+let numsa = [1, 0, 1, 1];
+let ka = 1;
+
+console.log(containsDuplicate(numsa, ka));
+
+// Submission accepted ✅
