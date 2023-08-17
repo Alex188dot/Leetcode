@@ -510,3 +510,11 @@ n == nums.length
 All the numbers of nums are unique.
 
 */
+
+var missingNumber = function (nums) {
+  return [...Array(nums.length + 1).keys()].filter((x) => !nums.includes(x));
+};
+
+nums = [3, 0, 1];
+
+console.log(missingNumber(nums));
