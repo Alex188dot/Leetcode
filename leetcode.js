@@ -549,3 +549,23 @@ n == nums.length
 -109 <= nums[i] <= 109
 
 */
+
+var majorityElement = function (nums) {
+  let count = 0;
+  let majority = nums[0];
+  for (let i = 0; i < nums.length; i++) {
+    if (count === 0) {
+      majority = nums[i];
+    }
+    if (nums[i] === majority) {
+      count++;
+    } else {
+      count--;
+    }
+  }
+  return majority;
+};
+
+console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+
+// Submission accepted ✅
