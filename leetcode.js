@@ -649,3 +649,17 @@ Constraints:
 -1000 <= n <= 1000
 At most 1000 calls to counter() will be made
 */
+
+var createCounter = function (n) {
+  let counter = n - 1;
+  return function () {
+    return ++counter;
+  };
+};
+
+const counter = createCounter(10);
+console.log(counter());
+console.log(counter());
+console.log(counter());
+
+// Submission accepted ✅
