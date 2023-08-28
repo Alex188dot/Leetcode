@@ -759,3 +759,25 @@ Constraints:
 -109 <= arr[i] <= 109
 
 */
+
+var filter = function (arr, fn) {
+  newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (fn(arr[i], i)) {
+      newArr.push(arr[i]);
+    } else if (typeof fn(arr[i]) === "number" && fn(arr[i]) === true) {
+      newArr.push(fn(arr[i]));
+    }
+  }
+  return newArr;
+};
+
+let arrC = [-2, -1, 0, 1, 2];
+
+function plusOneA(n) {
+  return n + 1;
+}
+
+console.log(filter(arrC, plusOneA));
+
+// Submission accepted ✅
