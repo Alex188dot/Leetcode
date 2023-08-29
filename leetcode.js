@@ -887,3 +887,21 @@ Constraints:
 Accepted
 
 */
+
+var reduce = function (nums, fn, init) {
+  let val = init;
+  nums.forEach((num) => {
+    val = fn(val, num);
+  });
+  return val;
+};
+
+let numsx = [1, 2, 5];
+function sum(accum, curr) {
+  return accum + curr;
+}
+let init = 10;
+
+console.log(reduce(numsx, sum, init));
+
+// Submission accepted ✅
