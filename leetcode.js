@@ -908,7 +908,7 @@ console.log(reduce(numsx, sum, init));
 
 /*
 
-2665. Counter II
+2665. Counter II 💡
 
 The three functions are:
 
@@ -945,3 +945,30 @@ Constraints:
 total calls not to exceed 1000
 
 */
+
+var createCounter = function (init) {
+  let currentVal = init;
+  let counter = {
+    increment: function () {
+      ++currentVal;
+      return currentVal;
+    },
+    decrement: function () {
+      currentVal -= 1;
+      return currentVal;
+    },
+    reset: function () {
+      return (currentVal = init);
+    },
+  };
+  return counter;
+};
+
+const cx = createCounter(5);
+console.log(cx);
+console.log(cx.increment());
+console.log(cx.reset()); // 5 // 6
+console.log(cx.decrement());
+console.log(cx.increment()); // 6
+
+// Submission accepted ✅
