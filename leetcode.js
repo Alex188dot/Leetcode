@@ -1014,3 +1014,18 @@ arr is a valid JSON array
 1 <= size <= arr.length + 1
 
 */
+
+var chunk = function (arr, size) {
+  var chunks = [];
+  for (var i = 0; i < arr.length; i += size) {
+    var subarray = arr.slice(i, i + size);
+    chunks.push(subarray);
+  }
+  return chunks;
+};
+
+arr = [1, 9, 6, 3, 2];
+let size = 3;
+console.log(chunk(arr, size));
+
+// Submission accepted ✅
