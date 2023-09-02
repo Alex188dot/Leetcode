@@ -1127,3 +1127,27 @@ Constraints:
 * nums is sorted in non-decreasing order.
 
 */
+
+var removeDuplicates = function (nums) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === nums[i + 1]) {
+      delete nums[i];
+    }
+  }
+  nums.sort(function (a, b) {
+    return a - b;
+  });
+  let ind = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === undefined) {
+      ind.push(i);
+    }
+  }
+  return nums.slice(0, ind[0]).length;
+};
+
+nums = [1, 1, 1, 2, 2, 2, 2];
+
+console.log(removeDuplicates(nums));
+
+// Submission accepted ✅
