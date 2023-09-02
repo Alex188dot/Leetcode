@@ -1061,3 +1061,30 @@ The number of nodes in the list is in the range [0, 104].
 Accepted
 
 */
+
+// Definition for singly-linked list.
+function ListNode(val, next) {
+  this.val = val === undefined ? 0 : val;
+  this.next = next === undefined ? null : next;
+}
+
+var removeElements = function (head, val) {
+  let newNode = new ListNode(0);
+  newNode.next = head;
+  let curr = newNode;
+  while (curr.next) {
+    if (curr.next.val === val) {
+      curr.next = curr.next.next;
+    } else {
+      curr = curr.next;
+    }
+  }
+  return newNode.next;
+};
+
+let head = [1, 2, 6, 3, 4, 5, 6];
+let val = 6;
+
+console.log(removeElements(head, val));
+
+// Submission accepted ✅
