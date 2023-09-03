@@ -1185,3 +1185,23 @@ Constraints:
 1 <= s.length <= 2 * 105
 s consists only of printable ASCII characters.
 */
+
+var isPalindrome = function (s) {
+  let arr1 = [];
+  let arr2 = [];
+  let newS = s.replace(/[^a-z0-9]/gi, "");
+  newS = newS.toLowerCase();
+  arr1.push(newS);
+  for (let i = newS.length; i >= 0; i--) {
+    arr2.push(newS[i]);
+  }
+  const equalsCheck = (a, b) =>
+    a.length === b.length && a.every((v, i) => v === b[i]);
+  return equalsCheck(arr1, [arr2.join("")]);
+};
+
+s = "A man, a plan, a canal: Panama";
+
+console.log(isPalindrome(s));
+
+// Submission accepted ✅
