@@ -1275,3 +1275,23 @@ Constraints:
 1 <= prices.length <= 105
 0 <= prices[i] <= 104
 */
+
+var maxProfit = function (prices) {
+  var low = prices[0];
+  var max = 0;
+  for (var i = 1; i < prices.length; i++) {
+    if (prices[i] < low) {
+      low = prices[i];
+    }
+    var profit = prices[i] - low;
+    if (profit > max) {
+      max = profit;
+    }
+  }
+  return max;
+};
+
+let prices = [7, 6, 4, 3, 1];
+console.log(maxProfit(prices));
+
+// Submission accepted ✅
