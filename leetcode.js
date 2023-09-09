@@ -1329,3 +1329,19 @@ Constraints:
 Accepted
 
 */
+
+var climbStairs = function (n) {
+  let result = 0;
+  let prev = 0;
+  let curr = 1;
+  for (let i = 0; i <= n; i++) {
+    result = curr;
+    curr = curr + prev;
+    prev = result;
+  }
+  return result;
+};
+
+console.log(climbStairs(10));
+
+// Submission accepted ✅
