@@ -1346,41 +1346,51 @@ console.log(climbStairs(10));
 
 // Submission accepted ✅
 
-/*
+/* 
 
-202. Happy Number
-Easy
-9.5K
-1.2K
+4. Median of Two Sorted Arrays 💡
+Hard
+26.7K
+2.9K
 Companies
-Write an algorithm to determine if a number n is happy.
+Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
 
-A happy number is a number defined by the following process:
-
-Starting with any positive integer, replace the number by the sum of the squares of its digits.
-Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
-Those numbers for which this process ends in 1 are happy.
-Return true if n is a happy number, and false if not.
+The overall run time complexity should be O(log (m+n)).
 
  
-
 Example 1:
 
-Input: n = 19
-Output: true
-Explanation:
-12 + 92 = 82
-82 + 22 = 68
-62 + 82 = 100
-12 + 02 + 02 = 1
+Input: nums1 = [1,3], nums2 = [2]
+Output: 2.00000
+Explanation: merged array = [1,2,3] and median is 2.
 Example 2:
 
-Input: n = 2
-Output: false
+Input: nums1 = [1,2], nums2 = [3,4]
+Output: 2.50000
+Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
  
 
-Constraints:
-
-1 <= n <= 231 - 1
-
 */
+
+var findMedianSortedArrays = function (nums1, nums2) {
+  nums3 = [...nums1, ...nums2];
+  nums3.sort(function (a, b) {
+    return a - b;
+  });
+  let result;
+  if (nums3.length % 2 === 0) {
+    x = nums3.length / 2;
+    y = x - 1;
+    result = (nums3[y] + nums3[x]) / 2;
+  } else {
+    a = Math.floor(nums3.length / 2);
+    result = nums3[a];
+  }
+  return result;
+};
+
+d = [1, 3];
+e = [4, 7];
+console.log(findMedianSortedArrays(d, e));
+
+// Submission accepted ✅
